@@ -732,24 +732,26 @@
         }, 300);
 
         // Random jump scares
-        setInterval(() => {
-            if (Math.random() > 0.95) {
-                const jumpScare = document.getElementById('jumpScare');
-                jumpScare.style.display = 'block';
-                // Play scary sound if available
-                try {
-                    const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmIbBzuU2u/BdCkGK4DN8tmGNggXafzJOD2U2/rFeCsGKICKd2MAABEAAABBAAAAwAEAAMABAADBAAAAwAAAAADABAAEAADAAgAAAgAAAwAAAAQAAgABAAIAAMAAAADAAQABwAEAAMAAAADAAQAAgAEAAwABwADABQABAADAAQABAAEAAQABAAEAAQAAAADAAgABAAEAAMABAALAAMABAAAAADAAMABAAbAAQABAAQAAwACAAbAAQABAAQAAgADAAAAAQABwADABAAAQAAgADABAAABAAAAABAAAMAAAAAAAAAAADABQAAQAAAAMAAAADAAAAAwAEAAQABAAEAAQAAwAEAAQAAAABAAEAAYAEAAQABAAKAAgABAAQAAgAAAADAAgAAwADABAABwADAAwAAQAAAAEAAQAAAADAAAAAMAEAAYABAAMAAgAAAAMAAAABAAEAAQABAAGAAYAAgABAAIAAYABgAEAAQAAAAEAAQAAAABAAEAAYAAAAEAAAADAAAAAQAAAAQAAwAAAAEAAQAAA==');
-                    audio.play();
-                } catch (e) {
-                    console.log('Audio failed to play');
-                }
-                setTimeout(() => {
-                    jumpScare.style.display = 'none';
-                }, 500);
-            }
-        }, 8000);
+      setInterval(() => {
+    // 20% șanse (modifică 0.2 după bunul plac)
+    if (Math.random() > 0.80) {
+        
+        const jumpScare = document.getElementById('jumpScare');
+        jumpScare.style.display = 'block';
 
-        // Fake error popups
+        // Calea către fișierul din folderul tău
+        // Exemplu: Dacă ai fișierul în folderul "assets", scrii 'assets/sunet.mp3'
+        const audio = new Audio('./Nexus Menu - System Compromised_files/earrape.mp3'); 
+        
+        audio.play().catch(e => console.log('Autoplay blocat'));
+
+        setTimeout(() => {
+            jumpScare.style.display = 'none';
+        }, 500);
+    }
+}, 15000);
+
+        // Fake error popupss
         setInterval(() => {
             if (Math.random() > 0.92) {
                 const fakeError = document.getElementById('fakeError');
